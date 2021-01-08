@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Gatsby Tina CMS`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Thao Truong`,
+      summary: `junior developer`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `A proof of concept using tina cms`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `thaotruong`,
     },
   },
   plugins: [
@@ -70,6 +70,20 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-tinacms",
+      options: {
+        enabled: process.env.NODE_ENV !== "production",
+        sidebar: {
+          position: "displace",
+          buttons: {
+            save: "Commit",
+            reset: "Reset",
+          }
+        },
+        plugins: ["gatsby-tinacms-git", "gatsby-tinacms-remark"],
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
